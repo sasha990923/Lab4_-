@@ -1,0 +1,106 @@
+#№2
+def count_char(text, char):
+    count = 0
+    for symbol in text:
+        if symbol == char:
+            count += 1
+    return count
+print(count_char("саша", "а"))
+print("-----------------------------------------")
+#№3
+t = "             sasha                      "
+c = t.strip()
+print(c)
+print("-----------------------------------------")
+#№8
+q = "привет! я саша, как у вас дела?"
+l = q.title()
+print(l)
+print("-----------------------------------------")
+#№4
+x = "Привет! Я Саша, Как У Вас Дела?"
+r = x.lower()
+print(r)
+print("-----------------------------------------")
+#№5
+e = "привет я саша"
+w = e.split()
+print(w)
+print("-----------------------------------------")
+#№6
+def count_chars(text):
+    freq = {}
+    for char in text:
+        if char in freq:
+            freq[char] += 1
+        else:
+            freq[char] = 1
+    return freq
+print(count_chars("sasha"))
+print("-----------------------------------------")
+#№10
+o = input("введите первую строку: ")
+a = input("введите вторую строку строку: ")
+probel = input("поставьте пробел: ")
+d = o + probel + a
+print(f"результат: {d}")
+print("-----------------------------------------")
+#№7
+w = ["саша", "настя", "телефон", "стол"]
+l = max(w, key=len)
+print(l)
+print("-----------------------------------------")
+#№15
+def sort_and_join(r):
+    s = sorted(r, key=len) #sorted сортирует
+    return ''.join(s)
+words = ["привет", "sasha", "настя", "саша", "код"]
+u = sort_and_join(words)
+print(u)
+print("-----------------------------------------")
+#№13
+text = input("Введите зашифрованную строку: ")
+step = int(input("Введите шаг: "))
+result = ""
+alphabet = "абвгдежзийклмнопрстуфхцчшщъыьэюя"
+
+for char in text:
+    if char.lower() in alphabet:
+        pos = alphabet.find(char.lower()) #ищет позицию символа в строке-алфавитa
+        new_pos = (pos - step) % len(alphabet) # % остаток от деления :)
+        new_char = alphabet[new_pos]
+        if char.isupper():
+            result += new_char.upper() # upper делает что буквы большие
+        else:
+            result += new_char
+    else:
+        result += char
+
+print("Расшифровано:", result)
+print("-----------------------------------------")
+#№17
+def format_phone(phone):
+    digits = (''.join(c for c in str(phone) if c.isdigit()))
+    digits = digits[-10:]  #последние 10 цифр
+    return (f"+7{digits}")
+print(format_phone("9839490203"))
+print("-----------------------------------------")
+#№19
+def replace_vars(text, vars_dict):
+    for var_name, value in vars_dict.items(): # vars_dict.items возврощает ключ-значение
+        text = text.replace(f"{{{var_name}}}", str(value)) # replace заменяет одну часть текста на другую
+    return text
+text = "Привет, {name}! Твой баланс: {balance} руб. Твой возвраст: {age}. Cейчас пара: {para}"
+variables = {"name": "саша", "balance": 1000000, "age": 17, "para": "пайтон"}
+a = replace_vars(text, variables)
+print(a)
+print("-----------------------------------------")
+#№9
+string = "саша насть sasha"
+massiv = string.split(" ") # strip убирает пробелы
+for i in range(len(massiv)):
+    massiv[i] = massiv[i][-1] + massiv[i][1:-1] + massiv[i][0]
+string = " ".join(massiv) # обединяет строко из ['аашс', 'ьастн', 'aashs'] в аашс ьастн aashs
+print(string)
+print(massiv)
+print("-----------------------------------------")
